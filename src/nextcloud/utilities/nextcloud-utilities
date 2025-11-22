@@ -54,7 +54,7 @@ nextcloud_notify_admins()
 
 cronjob_interval()
 {
-	interval="$(snapctl get nextcloud.cron-interval)"
+	interval="$(snapctl get ${SNAP_INSTANCE_NAME}.cron-interval)"
 	if [ -z "$interval" ]; then
 		interval="$DEFAULT_CRONJOB_INTERVAL"
 		set_cronjob_interval "$interval"
@@ -71,7 +71,7 @@ previous_cronjob_interval()
 
 set_cronjob_interval()
 {
-	snapctl set nextcloud.cron-interval="$1"
+	snapctl set ${SNAP_INSTANCE_NAME}.cron-interval="$1"
 }
 
 set_previous_cronjob_interval()
